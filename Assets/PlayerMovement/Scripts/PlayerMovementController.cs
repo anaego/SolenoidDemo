@@ -1,9 +1,13 @@
+using UniRx;
+
 namespace PlayerMovement
 {
     public class PlayerMovementController
     {
-        private PlayerMovementView _view;
-        private PlayerMovementConfig _config;
+        private readonly PlayerMovementView _view;
+        private readonly PlayerMovementConfig _config;
+
+        public ReactiveProperty<float> Magnitude => _view.Magnitude; 
    
         public PlayerMovementController(PlayerMovementView view, PlayerMovementConfig config)
         {

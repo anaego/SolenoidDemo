@@ -1,3 +1,4 @@
+using UniRx;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -10,6 +11,8 @@ namespace PlayerMovement
         private PlayerMovementConfig _config;
         private float _horizontalMovement;
         private bool _isFacingRight = true;
+        
+        public ReactiveProperty<float> Magnitude = new(0); 
 
         public void Init(PlayerMovementConfig config)
         {
@@ -19,7 +22,8 @@ namespace PlayerMovement
         private void Update()
         {
             _rigidbody.velocity = new Vector2(_horizontalMovement * _config.Speed, _rigidbody.velocity.y);
-            Flip();
+            HandleFlip();
+            Magnitude.Value = _rigidbody.velocity.magnitude;
         }
 
         public void Move(InputAction.CallbackContext context)
@@ -27,7 +31,7 @@ namespace PlayerMovement
             _horizontalMovement = context.ReadValue<Vector2>().x;
         }
         
-        private void Flip() 
+        private void HandleFlip() 
         {
             if (_isFacingRight && _horizontalMovement < 0 || !_isFacingRight && _horizontalMovement > 0)
             {
