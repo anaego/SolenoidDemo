@@ -1055,6 +1055,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rigidbody: {fileID: 1056138829}
+  _mouseClickAction:
+    m_Name: Mouse Click
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 54034b84-598a-470e-8e88-c20d08b8c243
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 60a6d8b7-ae96-4089-bbf6-652e96274fe4
+      m_Path: <Mouse>/leftButton
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Mouse Click
+      m_Flags: 0
+    m_Flags: 0
+  _camera: {fileID: 519420031}
   Magnitude:
     value: 0
 --- !u!114 &1056138833
